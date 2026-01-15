@@ -1,0 +1,59 @@
+.sl-markdown-content a[data-footnote-ref],
+.sl-markdown-content a.footnote-ref,
+.sl-markdown-content sup.footnote-ref > a,
+.sl-markdown-content sup > a[href^="#fn"] {
+  background: var(--sl-color-gray-6);
+  border: 1px solid var(--sl-color-gray-4);
+  border-radius: 999px;
+  color: var(--sl-color-text);
+  display: inline-block;
+  font-size: 0.75em;
+  line-height: 1;
+  padding: 0.1em 0.4em;
+  text-decoration: none;
+  transform: translateY(-0.05em);
+}
+
+.sl-markdown-content a[data-footnote-ref]:hover,
+.sl-markdown-content a.footnote-ref:hover,
+.sl-markdown-content sup.footnote-ref > a:hover,
+.sl-markdown-content sup > a[href^="#fn"]:hover {
+  background: color-mix(in srgb, var(--sl-color-accent) 15%, transparent);
+  border-color: color-mix(in srgb, var(--sl-color-accent) 60%, var(--sl-color-gray-4));
+  color: var(--sl-color-accent);
+}
+
+.sl-markdown-content .footnotes,
+.sl-markdown-content section.footnotes {
+  border-top: 1px solid var(--sl-color-gray-5);
+  font-size: 0.9em;
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+.sl-markdown-content .footnotes ol,
+.sl-markdown-content section.footnotes ol {
+  padding-left: 1.25rem;
+}
+
+.sl-markdown-content a[data-footnote-backref],
+.sl-markdown-content a.footnote-backref {
+  color: var(--sl-color-accent);
+  font-size: 0;
+  text-decoration: none;
+}
+
+.sl-markdown-content a[data-footnote-backref]:hover,
+.sl-markdown-content a.footnote-backref:hover {
+  text-decoration: underline;
+}
+
+.sl-markdown-content a[data-footnote-backref]::before,
+.sl-markdown-content a.footnote-backref::before {
+  content: "^";
+  font-size: 0.85rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
