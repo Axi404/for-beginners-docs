@@ -8,6 +8,9 @@ export default defineConfig({
 		starlight({
 			title: '致新生的你',
 			customCss: ['./src/styles/custom.css'],
+			components: {
+				Pagination: './src/components/starlight/Pagination.astro',
+			},
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{

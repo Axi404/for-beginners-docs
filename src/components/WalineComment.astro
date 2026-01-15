@@ -1,0 +1,24 @@
+---
+// Waline 评论组件
+---
+
+<div id="waline"></div>
+
+<script>
+  import { init } from '@waline/client';
+  import '@waline/client/style';
+
+  init({
+    el: '#waline',
+    serverURL: 'https://waline-beginners.axi404.top',
+    dark: '[data-theme="dark"]',
+  });
+</script>
+
+<style>
+  #waline {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--sl-color-gray-5);
+  }
+</style>
