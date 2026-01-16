@@ -7,3 +7,12 @@ title: 你唯一在深度学习中需要掌握的语言
 在此基础上，我们有必要简单描述一下在主流深度学习领域中对于编程部分的技术栈，在领域的早期，各种的学习框架以及各类内容几乎是百花齐放，但是伴随着几年的迭代，社区趋于稳定，框架的选择也逐渐收敛。我们使用 MiniConda 或者 uv 进行环境管理，PyTorch 进行模型的搭建以及训练框架的搭建，对于更加现代的领域，诸如 LLM, VLM 或者 VLA，我们均使用 Transformers 库，这是一个 Huggingface 搭建的对于模型进行进一步封装的库。在此基础上，如果你对于 LLM 以及 VLM 存在一些部署的需求，目前的主流框架是 vLLM。
 
 如果你不了解 Huggingface，这是一个面向模型的 Github 类似的内容，使用者可以上传自己的模型权重或者数据集（数据集的概念相当广泛，这几乎就是一个网盘）到 Huggingface，以实现开源以及全球的分发，除此之外 Huggingface 也形成了全球最大的人工智能尤其是模型社区。当然，如果你不了解 Github 是什么，在上面我们进行了解释，你也可以直接翻到文章底部的脚注寻找 Github 词条，或者问问大模型。
+
+import Checklist from '../../../components/Checklist.astro';
+
+<Checklist title="Checklist" items={[
+  "掌握 Python 基础语法",
+  "了解 MiniConda/uv 进行环境管理",
+  "了解 PyTorch 的基本使用",
+  "注册 Huggingface 账号并浏览社区",
+]} />

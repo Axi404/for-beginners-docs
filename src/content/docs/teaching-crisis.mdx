@@ -43,3 +43,10 @@ import { Aside } from '@astrojs/starlight/components';
 <Aside type='note' title='关于提前选课的必要性'>
 值得注意的是，脱离本科的教学体系完全不等于你有必要进行课程的跨选或者提前选课，这除了给你当前学期增加过多的学习压力，并且浪费你的时间之外，不会有别的帮助。正确的方法是寻找更加高效的学习方法，并且投入恰好的时间在本学期的课程中，使得你可以以「够用」的成绩通过考试，除此之外不再花费任何的时间留恋其间。
 </Aside>
+
+import Checklist from '../../components/Checklist.astro';
+
+<Checklist title="Takeways" items={[
+  "我需要在本科教学之外自我提升",
+  "浪费时间到及格线之上的课内内容是没有意义的"
+]} />
