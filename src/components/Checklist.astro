@@ -1,0 +1,81 @@
+---
+interface Props {
+  title?: string;
+  items: string[];
+}
+
+const { title = 'Checklist for moving on', items } = Astro.props;
+---
+
+<div class="checklist-card">
+  <h4 class="checklist-title">{title}</h4>
+  <ul class="checklist-items">
+    {items.map((item, index) => (
+      <li class="checklist-item">
+        <label>
+          <input type="checkbox" />
+          <span>{item}</span>
+        </label>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .checklist-card {
+    background-color: #d4edda;
+    border: 1px solid #28a745;
+    border-left: 4px solid #28a745;
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .checklist-title {
+    color: #155724;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .checklist-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .checklist-item {
+    margin: 0.5rem 0;
+  }
+
+  .checklist-item label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    color: #155724;
+  }
+
+  .checklist-item input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    accent-color: #28a745;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .checklist-item span {
+    line-height: 1.4;
+  }
+
+  /* 深色模式支持 */
+  :global([data-theme="dark"]) .checklist-card {
+    background-color: rgba(40, 167, 69, 0.15);
+    border-color: #28a745;
+  }
+
+  :global([data-theme="dark"]) .checklist-title,
+  :global([data-theme="dark"]) .checklist-item label {
+    color: #90ee90;
+  }
+</style>
