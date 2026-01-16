@@ -2,24 +2,63 @@
 interface Props {
   title?: string;
   items: string[];
+  id?: string;
 }
 
-const { title = 'Checklist for moving on', items } = Astro.props;
+const { title = 'Checklist for moving on', items, id } = Astro.props;
+// 使用 id 或根据 title + items 生成唯一标识
+const storageKey = id || `checklist-${Buffer.from(title + items.join('')).toString('base64').slice(0, 16)}`;
 ---
 
-<div class="checklist-card">
+<div class="checklist-card" data-checklist-key={storageKey}>
   <h4 class="checklist-title">{title}</h4>
   <ul class="checklist-items">
     {items.map((item, index) => (
       <li class="checklist-item">
         <label>
-          <input type="checkbox" />
+          <input type="checkbox" data-index={index} />
           <span>{item}</span>
         </label>
       </li>
     ))}
   </ul>
 </div>
+
+<script>
+  function initChecklists() {
+    document.querySelectorAll('.checklist-card[data-checklist-key]').forEach((card) => {
+      const key = card.getAttribute('data-checklist-key');
+      if (!key) return;
+
+      const checkboxes = card.querySelectorAll('input[type="checkbox"]');
+
+      // 从 localStorage 恢复状态
+      const saved = localStorage.getItem(key);
+      if (saved) {
+        try {
+          const states = JSON.parse(saved);
+          checkboxes.forEach((cb, i) => {
+            if (states[i]) (cb as HTMLInputElement).checked = true;
+          });
+        } catch (e) {}
+      }
+
+      // 监听变化并保存
+      checkboxes.forEach((cb) => {
+        cb.addEventListener('change', () => {
+          const states: boolean[] = [];
+          checkboxes.forEach((c) => states.push((c as HTMLInputElement).checked));
+          localStorage.setItem(key, JSON.stringify(states));
+        });
+      });
+    });
+  }
+
+  // 初始化
+  initChecklists();
+  // Astro View Transitions 支持
+  document.addEventListener('astro:page-load', initChecklists);
+</script>
 
 <style>
   .checklist-card {
