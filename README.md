@@ -1,49 +1,40 @@
-# Starlight Starter Kit: Basics
+# for-beginners-docs
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+Computer science educational/research tutorial documentation site ("致新生的你") built with Astro + Starlight.
 
-```
-pnpm create astro@latest -- --template starlight
-```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+## Project Structure
 
 ```
 .
-├── public/
+├── public/                # static assets copied to build output
 ├── src/
-│   ├── assets/
+│   ├── assets/            # images/media referenced by content
+│   ├── components/        # custom components for MDX
 │   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+│   │   ├── docs/          # documentation content (MD/MDX)
+│   │   └── content.config.ts
+│   └── styles/            # custom CSS overrides
+├── astro.config.mjs       # Starlight config + sidebar
+└── dist/                  # build output (generated)
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+Starlight routes are file-based: each `.md`/`.mdx` file under `src/content/docs/` becomes a page.
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+## Commands
 
-Static assets, like favicons, can be placed in the `public/` directory.
+All commands run from the project root:
 
-## 🧞 Commands
+| Command | Action |
+| :-- | :-- |
+| `pnpm install` | Install dependencies |
+| `pnpm dev` | Start local dev server at `http://localhost:4321` |
+| `pnpm build` | Build production site to `./dist/` |
+| `pnpm preview` | Preview the production build locally |
+| `pnpm astro -- --help` | Show Astro CLI help |
 
-All commands are run from the root of the project, from a terminal:
+## Content Notes
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+- Write content in Simplified Chinese to match the site.
+- MDX files require YAML frontmatter (at least `title`).
+- Use Starlight components like `<Aside>` from `@astrojs/starlight/components`.
+- Sidebar navigation is configured in `astro.config.mjs` under `starlight.sidebar`.
