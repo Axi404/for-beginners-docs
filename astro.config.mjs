@@ -46,7 +46,14 @@ export default defineConfig({
 						{ label: '一条可能的时间线', slug: 'ai-roadmap/possible-timeline' },
 					]
 				},
-				{ label: '保研二三事', slug: 'baoyan-guide' },
+				{
+					label: '保研二三事', items: [
+						{ label: '引言', slug: 'baoyan-guide/intro' },
+						{ label: '保研流程', slug: 'baoyan-guide/process' },
+						{ label: '保研细则', slug: 'baoyan-guide/details' },
+						{ label: '两种流派', slug: 'baoyan-guide/approaches' },
+					]
+				},
 				{ label: '结语', slug: 'conclusion' },
 				{ label: 'Change Logs', slug: 'changelog' },
 			],
