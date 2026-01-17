@@ -11,7 +11,7 @@ export default defineConfig({
 			components: {
 				Pagination: './src/components/starlight/Pagination.astro',
 			},
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/Axi404/for-beginners-docs' }],
 			sidebar: [
 				{ label: '导读', slug: '' },
 				{ label: '前言', slug: 'preface' },
